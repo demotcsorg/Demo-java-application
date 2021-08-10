@@ -13,8 +13,8 @@ public class SpringwebApplication {
 
 	@RequestMapping(value="/")
 	public String index() {
-		return "<h1>Hello from Spring Web App</h1>"
-				+ "<p>The app is running</p>";
+		return "<h1>WELCOME TO THIS PAGE</h1>"
+				+ "<p>This a Spring boot web application.</p>";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringwebApplication.class, args);
