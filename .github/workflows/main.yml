@@ -27,10 +27,14 @@ jobs:
       run: ${{ env.MAVEN_RUN_COMMAND }}
       
     - name: generate report codecov
-      run: mvn cobertura:cobertura
+      run: mvn cobertura:cobertura 
+      
+      
+    - name: Package
+      run: mvn -B clean package
       
     - name: Mvn verify
-      run: mvn clean verify -DskipTests
+      run: mvn -B clean verify -DskipTests
   
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
