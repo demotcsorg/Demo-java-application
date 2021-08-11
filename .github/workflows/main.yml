@@ -1,4 +1,4 @@
-name: Build of Spring Boot Java App with Test Cases
+name: Spring Boot Java Web App with Code Coverage
 
 on:
   push:
@@ -27,12 +27,6 @@ jobs:
       
     - name: Testing
       run: mvn clean test
- 
-  
-      
-    - name: generate report codecov
-      run: mvn cobertura:cobertura 
-      
       
     - name: Package
       run: mvn -B clean package
