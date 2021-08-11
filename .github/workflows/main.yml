@@ -21,12 +21,14 @@ jobs:
       with:
         java-version: ${{ env.JAVA_VERSION }}
     
-    - name: Testing
-      run: mvn clean test
-      
         
     - name: Build with the Maven
       run: ${{ env.MAVEN_RUN_COMMAND }}
+      
+    - name: Testing
+      run: mvn clean test
+ 
+  
       
     - name: generate report codecov
       run: mvn cobertura:cobertura 
