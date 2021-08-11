@@ -28,6 +28,9 @@ jobs:
       
     - name: generate report codecov
       run: mvn cobertura:cobertura
+      
+    - name: Mvn verify
+      run: mvn clean verify -DskipTests
   
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
