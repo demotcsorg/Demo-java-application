@@ -26,6 +26,8 @@ jobs:
     - name: Build with the Maven
       run: ${{ env.MAVEN_RUN_COMMAND }}
       
+    - name: generate report codecov
+      run: mvn cobertura:cobertura
   
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
