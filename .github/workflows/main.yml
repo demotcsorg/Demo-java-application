@@ -27,11 +27,13 @@ jobs:
       run: ${{ env.MAVEN_RUN_COMMAND }}
       
        
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
+        
+    - name: Upload Unit Test Results
       if: always()
+      uses: actions/upload-artifact@v2
       with:
-        files: test-results/**/*.xml
+        name: Unit Test Results 
+        path: pytest.xml
   
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
@@ -51,6 +53,13 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: java-app
+        
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      if: always()
+      with:
+        files: test-results/**/*.xml
+    
    
     - name: Deploy to Azure Web App
       uses: azure/webapps-deploy@v2
