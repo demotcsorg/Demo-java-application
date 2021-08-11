@@ -1,4 +1,4 @@
-name: Build for testing Code Coverage
+name: Build of Spring Boot Java App with Test Cases
 
 on:
   push:
@@ -26,14 +26,6 @@ jobs:
     - name: Build with the Maven
       run: ${{ env.MAVEN_RUN_COMMAND }}
       
-       
-        
-    - name: Upload Unit Test Results
-      if: always()
-      uses: actions/upload-artifact@v2
-      with:
-        name: Unit Test Results 
-        path: '${{ github.workspace }}/target/*.xml'
   
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
@@ -53,17 +45,6 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: java-app
-    
-    - name: Download Artifacts
-      uses: actions/download-artifact@v2
-      with:
-        path: artifacts
-    
-    - name: Publish Unit Test Results
-      uses: EnricoMi/publish-unit-test-result-action@v1
-      if: always()
-      with:
-        files: artifacts/**/*.xml
     
    
     - name: Deploy to Azure Web App
