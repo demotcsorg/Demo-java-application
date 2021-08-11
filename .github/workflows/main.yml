@@ -6,7 +6,7 @@ on:
       - master
 env:  
   JAVA_VERSION: '8'
-  MAVEN_RUN_COMMAND: mvn clean install
+  MAVEN_RUN_COMMAND: mvn -B package --file pom.xml -Dmaven.test.skip=true
   AZURE_WEBAPP: 'new-javaapp'
 
 jobs:
