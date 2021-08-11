@@ -14,7 +14,7 @@ public class SpringwebApplication {
 	@RequestMapping(value="/")
 	public String index() {
 		return "<h1>WELCOME TO THIS PAGE</h1>"
-				+ "<p>This a Spring boot web application.</p>";
+				+ "<p>This is a Spring boot web application.</p>";
 	}
 	public static void main(String[] args) {
 		SpringApplication.run(SpringwebApplication.class, args);
