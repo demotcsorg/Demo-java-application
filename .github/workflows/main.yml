@@ -23,6 +23,12 @@ jobs:
     
     - name: Testing
       run: mvn clean test
+      
+    - name: Test
+      run: |
+        CVPKG=$(go list ./... | grep -v mocks | tr '\n' ',')
+        go test -coverpkg=${CVPKG} -coverprofile=coverage.out -covermode=count  ./...
+        
     - name: Build with the Maven
       run: ${{ env.MAVEN_RUN_COMMAND }}
       
