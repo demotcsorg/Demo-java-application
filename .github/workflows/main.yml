@@ -3,7 +3,7 @@ name: Spring Boot Java Web Application
 on:
   push:
     branches:
-      - master
+      - master1
 env:  
   JAVA_VERSION: '8'
   MAVEN_RUN_COMMAND: mvn -B package --file pom.xml -Dmaven.test.skip=true
